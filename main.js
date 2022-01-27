@@ -55,3 +55,47 @@ var twoSum = function(nums, target) {
 
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
+
+
+
+// Valid Palindrome
+
+// Example 1:
+
+// Input: s = "A man, a plan, a canal: Panama"
+// Output: true
+// Explanation: "amanaplanacanalpanama" is a palindrome.
+// Example 2:
+
+// Input: s = "race a car"
+// Output: false
+// Explanation: "raceacar" is not a palindrome.
+
+var isPalindrome = function(s) {
+    let pointerOne = 0;
+    let pointerTwo = s.length - 1;
+
+    while (pointerOne < pointerTwo) {
+        while (!isValidCharacter(s.charAt(pointerOne))) {
+            pointerOne++;
+        }
+
+        while (!isValidCharacter(s.charAt(pointerTwo))) {
+            pointerTwo--;
+        }
+
+        if (s.charAt(pointerOne).toLowerCase !== s.charAt(pointerTwo).toLowerCase) {
+            return false;
+        }
+
+        pointerOne++;
+        pointerTwo--;
+    }
+
+    return true;
+};
+
+let isValidCharacter = function(char) {
+    let validChars = 'abcdefghigklmnopqrstuvwxyz012345689';
+    return validChars.indexOf(char.toLowerCase()) > -1
+}
