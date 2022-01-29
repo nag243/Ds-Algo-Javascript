@@ -84,7 +84,7 @@ var isPalindrome = function(s) {
             pointerTwo--;
         }
 
-        if (s.charAt(pointerOne).toLowerCase !== s.charAt(pointerTwo).toLowerCase) {
+        if (s.charAt(pointerOne).toLowerCase() !== s.charAt(pointerTwo).toLowerCase()) {
             return false;
         }
 
@@ -96,7 +96,7 @@ var isPalindrome = function(s) {
 };
 
 let isValidCharacter = function(char) {
-    let validChars = 'abcdefghigklmnopqrstuvwxyz012345689';
+    let validChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     return validChars.indexOf(char.toLowerCase()) > -1
 }
 
