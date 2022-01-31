@@ -174,7 +174,7 @@ var searchInsert = function(nums, target) {
 
 function maxSubArray(nums) {
     let solution = nums[0]
-    for (let i = 2; i < nums.length; i++) {
+    for (let i = 1; i < nums.length; i++) {
         nums[i] = Math.max(nums[i], nums[i] + nums[i - 1])
         solution = Math.max(solution, num[i])
     }
