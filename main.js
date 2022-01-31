@@ -168,3 +168,29 @@ var searchInsert = function(nums, target) {
 
 // Input: nums = [1,3,5,6], target = 7
 // Output: 4
+
+
+// Maximum Subarray
+
+function maxSubArray(nums) {
+    let solution = nums[0]
+    for (let i = 2; i < nums.length; i++) {
+        nums[i] = Math.max(nums[i], nums[i] + nums[i - 1])
+        solution = Math.max(solution, num[i])
+    }
+    return solution
+}
+
+// Example 1:
+
+// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6
+// Explanation: [4,-1,2,1] has the largest sum = 6.
+// Example 2:
+
+// Input: nums = [1]
+// Output: 1
+// Example 3:
+
+// Input: nums = [5,4,-1,7,8]
+// Output: 23
