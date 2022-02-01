@@ -194,3 +194,24 @@ function maxSubArray(nums) {
 
 // Input: nums = [5,4,-1,7,8]
 // Output: 23
+
+
+lenghOfLastWord
+
+var lenghOfLastWord = function(s) {
+    if (s.length == 0) return 0;
+    let array = s.trim().split(' ');
+    return array[array.length - 1].length;
+}
+
+
+// Example 1:
+
+// Input: s = "Hello World"
+// Output: 5
+// Explanation: The last word is "World" with length 5.
+// Example 2:
+
+// Input: s = "   fly me   to   the moon  "
+// Output: 4
+// Explanation: The last word is "moon" with length 4.
