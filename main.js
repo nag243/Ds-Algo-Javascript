@@ -215,3 +215,41 @@ var lenghOfLastWord = function(s) {
 // Input: s = "   fly me   to   the moon  "
 // Output: 4
 // Explanation: The last word is "moon" with length 4.
+
+
+
+
+// Valid Parentheses
+
+var isValid = function(s) {
+    let bracket = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    }
+    let heap = [];
+
+    for (let char of s) {
+        if (bracket[char]) {
+            heap.push(bracket[char])
+        } else {
+            if (heap.pop() !== char) return false
+        }
+    }
+    return (!heap.length)
+}
+
+
+
+// Example 1:
+
+// Input: s = "()"
+// Output: true
+// Example 2:
+
+// Input: s = "()[]{}"
+// Output: true
+// Example 3:
+
+// Input: s = "(]"
+// Output: false
