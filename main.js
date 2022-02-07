@@ -341,3 +341,35 @@ var climbStairs = function(n) {
 //  1. 1 step + 1 step + 1 step
 //  2. 1 step + 2 steps
 //  3. 2 steps + 1 step
+
+
+
+// Implement strStr()
+
+var strStr = function(haystack, needle) {
+    if (needle.length === 0) return 0
+    for (let i = 0; i < haystack.length; i++) {
+        let k = i;
+        j = 0;
+        while (haystack[k] == needle[j] & j < needle.length) {
+            k++;
+            j++
+        }
+        if (needle.length == j) return i
+    }
+    return -1
+}
+
+
+// Example 1:
+
+// Input: haystack = "hello", needle = "ll"
+// Output: 2
+// Example 2:
+
+// Input: haystack = "aaaaa", needle = "bba"
+// Output: -1
+// Example 3:
+
+// Input: haystack = "", needle = ""
+// Output: 0
