@@ -375,3 +375,35 @@ var strStr = function(haystack, needle) {
 // Output: 0
 
 // Happy Number
+
+var isHappy = function(n) {
+    let seen = new Set()
+
+    while (!seen.has(n)) {
+        seen.add(n)
+        sqSum = 0
+        while (n > 0) {
+            sqSum += (n % 10) * (n % 10)
+            n = Math.floor(n / 10)
+        }
+        if (sqSum == 1) {
+            return true
+        }
+        n = sqSum;
+    }
+    return false
+}
+
+// Example 1:
+
+// Input: n = 19
+// Output: true
+// Explanation:
+// 12 + 92 = 82
+// 82 + 22 = 68
+// 62 + 82 = 100
+// 12 + 02 + 02 = 1
+// Example 2:
+
+// Input: n = 2
+// Output: false
