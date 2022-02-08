@@ -373,3 +373,5 @@ var strStr = function(haystack, needle) {
 
 // Input: haystack = "", needle = ""
 // Output: 0
+
+// Happy Number
