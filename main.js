@@ -463,3 +463,29 @@ var maxProfit = function(prices) {
 // Input: prices = [7,6,4,3,1]
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
+
+
+//majorityElement
+
+var majorityElement = function(nums) {
+    let obj = {}
+    let count = 0
+    let max = 0
+
+    for (let i of nums) {
+        if (!obj[i]) {
+            obj[i] = 1
+        } else {
+            obj[i]++
+        }
+    }
+
+    for (let j in obj) {
+        if (obj[j] > count) {
+            console.log(obj[j])
+            count = obj[j]
+            max = j
+        }
+    }
+    return max
+};
