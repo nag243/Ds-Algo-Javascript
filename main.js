@@ -525,7 +525,7 @@ var isIsomorphic = function(s, t) {
 // Input: s = "paper", t = "title"
 // Output: true
 
-// 21 Merge Two Sorted Lists
+// 21.Merge Two Sorted Lists
 
 var mergeTwoLists = function(l1, l2) {
     let curr = new ListNode();
@@ -547,4 +547,20 @@ var mergeTwoLists = function(l1, l2) {
         curr.next = l2
     }
     return dummy.next;
+}
+
+// 98.Validate Binary Search Tree
+
+var isValidBST = function(root) {
+    return dfs(root, -Infinity, Infinity)
+}
+
+function dfs(node, min, max) {
+    if (!node) {
+        return true
+    }
+    if (node.val <= min || node.val >= max) {
+        return false;
+    }
+    return dfs(node.left, min, node.val) && dfs(node.right, node.val, max)
 }
