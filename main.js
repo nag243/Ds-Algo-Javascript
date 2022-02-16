@@ -583,3 +583,53 @@ const reverseWords = s => s.trim().split(/\s+/).reverse().join(' ');
 // Input: s = "a good   example"
 // Output: "example good a"
 // Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
+
+
+//  Divide Two Integers
+
+
+var divide = function(dividend, divisor) {
+
+    let sign = 1
+    if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+        sign = -1
+    }
+
+    dividend = Math.abs(dividend)
+    divisor = Math.abs(divisor)
+
+    const baseOn2 = []
+    const baseOnDivisor = []
+
+    let i = 1
+    let j = divisor
+    while (j <= dividend) {
+        baseOn2.push(i)
+        baseOnDivisor.push(j)
+
+        i += i
+        j += j
+    }
+
+    // collect the result
+    let result = 0
+    for (let k = baseOnDivisor.length - 1; k > -1; k--) {
+        if (dividend >= baseOnDivisor[k]) {
+            result += baseOn2[k]
+            dividend -= baseOnDivisor[k]
+        }
+    }
+
+    return Math.min(Math.max(result * sign, -(2 ** 31)), 2 ** 31 - 1)
+};
+
+// Example 1:
+
+// Input: dividend = 10, divisor = 3
+// Output: 3
+// Explanation: 10/3 = 3.33333.. which is truncated to 3.
+// Example 2:
+
+// Input: dividend = 7, divisor = -3
+// Output: -2
+// Explanation: 7/-3 = -2.33333.. which is truncated to -2.
