@@ -633,3 +633,31 @@ var divide = function(dividend, divisor) {
 // Input: dividend = 7, divisor = -3
 // Output: -2
 // Explanation: 7/-3 = -2.33333.. which is truncated to -2.
+
+
+// Search in Rotated Sorted Array
+
+var search = function(nums, target) {
+    let start = 0,
+        end = nums.length - 1;
+    while (start <= end) {
+        const mid = Math.floor((start + end) / 2)
+        if (nums[mid] === target) return mid;
+        if (nums[mid] >= nums[start]) {
+            // start -end sorted
+            if (target >= nums[start] && target < nums[mid]) {
+                end = mid - 1
+            } else {
+                start = mid + 1
+            }
+        } else {
+            // mind -end sorted
+            if (target > nums[mid] && target <= nums[end]) {
+                start = mid + 1
+            } else {
+                end = mid - 1
+            }
+        }
+    }
+    return -1
+}
