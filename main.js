@@ -712,3 +712,24 @@ var permute = function(nums) {
 
 // Input: nums = [1]
 // Output: [[1]]
+
+// /group-anagrams
+
+var groupAnagrams = function(strs) {
+    const result = new Map()
+
+    for (let str of strs) {
+        const count = Array(26).fill(0)
+        for (let i = 0; i < str.length; i++) {
+            count[str.charCodeAt(i) - 97] += 1
+        }
+        const somewhatHash = count.join('') // 20000001000000005
+        if (result.has(somewhatHash)) {
+            result.get(somewhatHash).push(str)
+        } else {
+            result.set(somewhatHash, [str])
+        }
+    }
+
+    return Array.from(result.values())
+};
